@@ -680,31 +680,133 @@ let fairnessGameIndex = 0;
 let fairnessGameScore = 0;
 let fairnessGameAnswered = false;
 let fairnessQuestionOrder = [];
+let aiGameQuestions = [];
+let aiGameLang = null;
+let aiGameLoading = false;
+
+function getGameLoadingText() {
+    return currentLang === 'en' ? 'Generating AI questions...' : 'AI 題目生成中...';
+}
+
+function getGameLoadFailText() {
+    return currentLang === 'en'
+        ? 'AI question generation failed. The built-in question bank is being used for this round.'
+        : 'AI 題目產生失敗，本回合先使用內建題庫。';
+}
 
 function createFairnessQuestionOrder() {
-    const totalQuestions = I18N.zh.gameQuestions.length;
-    const indexes = Array.from({ length: totalQuestions }, (_, index) => index);
+    const totalQuestions = aiGameQuestions.length || I18N[currentLang].gameQuestions.length;
+    fairnessQuestionOrder = Array.from({ length: Math.min(FAIRNESS_GAME_ROUND_SIZE, totalQuestions) }, (_, index) => index);
+}
+
+function getLocalFallbackQuestions() {
+    const source = I18N[currentLang].gameQuestions || I18N.zh.gameQuestions;
+    const indexes = Array.from({ length: source.length }, (_, index) => index);
 
     for (let i = indexes.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
         [indexes[i], indexes[j]] = [indexes[j], indexes[i]];
     }
 
-    fairnessQuestionOrder = indexes.slice(0, Math.min(FAIRNESS_GAME_ROUND_SIZE, totalQuestions));
+    return indexes.slice(0, FAIRNESS_GAME_ROUND_SIZE).map(index => source[index]);
+}
+
+function normalizeAiGameQuestions(rawQuestions) {
+    if (!Array.isArray(rawQuestions)) return [];
+
+    return rawQuestions
+        .map(item => {
+            const options = Array.isArray(item.options)
+                ? item.options.map(option => String(option ?? '').trim()).filter(Boolean).slice(0, 4)
+                : [];
+
+            const answer = Number(item.answer);
+
+            return {
+                question: String(item.question ?? '').trim(),
+                options,
+                answer,
+                explain: String(item.explain ?? item.explanation ?? '').trim()
+            };
+        })
+        .filter(item => {
+            return item.question &&
+                item.options.length === 4 &&
+                Number.isInteger(item.answer) &&
+                item.answer >= 0 &&
+                item.answer <= 3 &&
+                item.explain;
+        })
+        .slice(0, FAIRNESS_GAME_ROUND_SIZE);
+}
+
+async function loadAiGameQuestions() {
+    const { data, error } = await db.functions.invoke('generate-game-questions', {
+        body: {
+            lang: currentLang,
+            count: FAIRNESS_GAME_ROUND_SIZE
+        }
+    });
+
+    if (error) {
+        throw error;
+    }
+
+    const questions = normalizeAiGameQuestions(data?.questions);
+
+    if (questions.length < FAIRNESS_GAME_ROUND_SIZE) {
+        throw new Error('AI returned invalid question format');
+    }
+
+    return questions;
 }
 
 function getCurrentFairnessQuestion() {
-    if (fairnessQuestionOrder.length === 0) {
+    if (!aiGameQuestions.length) {
+        aiGameQuestions = getLocalFallbackQuestions();
+        aiGameLang = currentLang;
         createFairnessQuestionOrder();
     }
 
-    const questionIndex = fairnessQuestionOrder[fairnessGameIndex];
-    return I18N[currentLang].gameQuestions[questionIndex];
+    const questionIndex = fairnessQuestionOrder[fairnessGameIndex] ?? fairnessGameIndex;
+    return aiGameQuestions[questionIndex];
+}
+
+function showGameLoadingState() {
+    const t = I18N[currentLang];
+    const gameQuestion = document.getElementById('gameQuestion');
+    const gameOptions = document.getElementById('gameOptions');
+    const gameFeedback = document.getElementById('gameFeedback');
+    const gameResult = document.getElementById('gameResult');
+    const gameNextBtn = document.getElementById('gameNextBtn');
+
+    if (!gameQuestion || !gameOptions || !gameFeedback || !gameResult || !gameNextBtn) return;
+
+    document.getElementById('gameProgress').textContent = t.gameProgress(1, FAIRNESS_GAME_ROUND_SIZE);
+    gameQuestion.textContent = getGameLoadingText();
+    document.getElementById('gameScore').textContent = fairnessGameScore;
+    gameOptions.innerHTML = '';
+    gameFeedback.classList.add('hidden');
+    gameFeedback.textContent = '';
+    gameResult.classList.add('hidden');
+    gameResult.innerHTML = '';
+    gameNextBtn.disabled = true;
+    gameNextBtn.textContent = t.gameNext;
 }
 
 function updateFairnessGameText() {
     const gameBox = document.getElementById('gameQuestion');
     if (!gameBox) return;
+
+    if (aiGameLoading) {
+        showGameLoadingState();
+        return;
+    }
+
+    if (!aiGameQuestions.length || aiGameLang !== currentLang) {
+        restartFairnessGame();
+        return;
+    }
 
     if (fairnessQuestionOrder.length === 0) {
         createFairnessQuestionOrder();
@@ -725,7 +827,7 @@ function updateFairnessGameText() {
     const optionsBox = document.getElementById('gameOptions');
     optionsBox.innerHTML = q.options.map((option, index) => `
         <button onclick="answerFairnessQuestion(${index})" class="game-option text-left border border-slate-200 hover:border-indigo-400 hover:bg-indigo-50 rounded-2xl p-5 font-bold transition">
-            ${String.fromCharCode(65 + index)}. ${option}
+            ${String.fromCharCode(65 + index)}. ${escapeHTML(option)}
         </button>
     `).join('');
 
@@ -742,7 +844,7 @@ function updateFairnessGameText() {
 }
 
 function answerFairnessQuestion(selectedIndex) {
-    if (fairnessGameAnswered) return;
+    if (fairnessGameAnswered || aiGameLoading) return;
 
     const q = getCurrentFairnessQuestion();
     const isCorrect = selectedIndex === q.answer;
@@ -767,16 +869,16 @@ function answerFairnessQuestion(selectedIndex) {
 
     feedback.classList.remove('hidden');
     feedback.className = isCorrect
-        ? "rounded-2xl p-5 mb-6 text-sm leading-relaxed bg-green-50 text-green-700 border border-green-100"
-        : "rounded-2xl p-5 mb-6 text-sm leading-relaxed bg-red-50 text-red-700 border border-red-100";
-    feedback.textContent = `${isCorrect ? "✅" : "💡"} ${q.explain}`;
+        ? 'rounded-2xl p-5 mb-6 text-sm leading-relaxed bg-green-50 text-green-700 border border-green-100'
+        : 'rounded-2xl p-5 mb-6 text-sm leading-relaxed bg-red-50 text-red-700 border border-red-100';
+    feedback.textContent = `${isCorrect ? '✅' : '💡'} ${q.explain}`;
 
     document.getElementById('gameScore').textContent = fairnessGameScore;
     document.getElementById('gameNextBtn').disabled = false;
 }
 
 function nextFairnessQuestion() {
-    if (!fairnessGameAnswered) return;
+    if (!fairnessGameAnswered || aiGameLoading) return;
 
     fairnessGameIndex += 1;
 
@@ -807,19 +909,44 @@ function showFairnessGameResult() {
     result.classList.remove('hidden');
     result.innerHTML = `
         <div class="bg-indigo-50 border border-indigo-100 rounded-2xl p-6">
-            <h4 class="text-2xl font-black text-indigo-900 mb-3">${t.gameResultTitle}</h4>
-            <p class="text-slate-700 leading-relaxed">${message}</p>
+            <h4 class="text-2xl font-black text-indigo-900 mb-3">${escapeHTML(t.gameResultTitle)}</h4>
+            <p class="text-slate-700 leading-relaxed">${escapeHTML(message)}</p>
         </div>
     `;
 }
 
-function restartFairnessGame() {
+async function restartFairnessGame() {
+    if (aiGameLoading) return;
+
     fairnessGameIndex = 0;
     fairnessGameScore = 0;
     fairnessGameAnswered = false;
-    createFairnessQuestionOrder();
-    updateFairnessGameText();
+    fairnessQuestionOrder = [];
+    aiGameQuestions = [];
+    aiGameLang = currentLang;
+    aiGameLoading = true;
+
+    showGameLoadingState();
+
+    try {
+        aiGameQuestions = await loadAiGameQuestions();
+    } catch (error) {
+        console.error('Gemini question generation failed:', error);
+        aiGameQuestions = getLocalFallbackQuestions();
+
+        const feedback = document.getElementById('gameFeedback');
+        if (feedback) {
+            feedback.classList.remove('hidden');
+            feedback.className = 'rounded-2xl p-5 mb-6 text-sm leading-relaxed bg-amber-50 text-amber-800 border border-amber-100';
+            feedback.textContent = getGameLoadFailText();
+        }
+    } finally {
+        aiGameLoading = false;
+        createFairnessQuestionOrder();
+        updateFairnessGameText();
+    }
 }
+
 
 function getIndustryAdviceZh(industry) {
     if (industry.includes("出版影音") || industry.includes("資通訊")) {
