@@ -92,68 +92,6 @@ const I18N = {
         gameResultHigh: "你很了解薪資公平觀念！可以把這些概念應用在薪資診斷、匿名回報與職涯規劃中。",
         gameResultMid: "你已經掌握基本概念。建議再熟悉薪資透明、同工同酬與談薪準備方式。",
         gameResultLow: "還有進步空間。建議先從了解公平基準、薪資資料蒐集與職場權益開始。",
-        gameQuestions: [
-            {
-                question: "全職工作和兼職工作最主要的差異通常是什麼？",
-                options: ["工作時數、福利與薪資計算方式可能不同", "全職一定比較輕鬆", "兼職一定沒有任何權益", "兩者薪資永遠相同"],
-                answer: 0,
-                explain: "全職與兼職通常在工時、福利、薪資計算方式與工作穩定性上有所差異，不能只看職稱判斷。"
-            },
-            {
-                question: "實習工作在評估薪資或津貼時，最應該注意什麼？",
-                options: ["是否有明確工作內容、工時與學習目標", "只要叫實習就不用給任何報酬", "是否能無限加班", "公司名氣越大就不用看條件"],
-                answer: 0,
-                explain: "實習仍應確認工作內容、工時、津貼或薪資、學習目標與責任範圍，避免實習變成不合理勞動。"
-            },
-            {
-                question: "約聘或契約型工作在接受前，最需要確認哪一項？",
-                options: ["契約期間、薪資、福利與續約條件", "主管看起來親切就好", "不用簽任何文件", "只要薪水高就不用看條款"],
-                answer: 0,
-                explain: "契約型工作要特別確認期間、薪資、福利、工作內容、續約方式與提前終止條件。"
-            },
-            {
-                question: "接案或自由工作者最容易忽略哪一種成本？",
-                options: ["稅務、保險、設備、溝通與未接案期間成本", "午餐吃什麼", "公司制服", "固定打卡機位置"],
-                answer: 0,
-                explain: "接案收入不能只看單次報價，還要考慮稅務、保險、設備、溝通時間與空窗期成本。"
-            },
-            {
-                question: "業務或銷售工作如果薪資包含高比例獎金，最應該先確認什麼？",
-                options: ["底薪、獎金公式、發放時間與業績認定方式", "只看最高可能收入", "獎金一定每月固定", "不用了解業績目標"],
-                answer: 0,
-                explain: "業務薪資常由底薪與獎金組成，應先確認獎金計算公式、發放時間、退單處理與業績認定規則。"
-            },
-            {
-                question: "輪班或夜班工作在比較薪資時，除了月薪還要看什麼？",
-                options: ["班表、夜班津貼、加班、休息時間與健康負荷", "只看公司名字", "只看職稱", "不用看工時"],
-                answer: 0,
-                explain: "輪班或夜班工作可能有額外津貼與健康負荷，應同時比較工時、休息、津貼與實際工作壓力。"
-            },
-            {
-                question: "遠端或混合辦公工作在薪資外，還需要確認哪個條件？",
-                options: ["設備補助、通訊規範、出勤方式與成果評估", "是否每天都不用工作", "是否永遠不用開會", "薪資一定比現場工作高"],
-                answer: 0,
-                explain: "遠端工作應確認設備、網路或通訊補助、會議與回報規範、出勤管理和成果評估方式。"
-            },
-            {
-                question: "技術型工作在談薪時，哪一項最能增加說服力？",
-                options: ["作品集、專案成果、證照或可驗證的技術能力", "只說自己很努力", "只比較朋友薪水", "完全不準備資料"],
-                answer: 0,
-                explain: "技術型工作談薪時，作品集、專案成果、證照和可量化貢獻會比單純主觀描述更有說服力。"
-            },
-            {
-                question: "服務業工作在評估薪資是否合理時，除了底薪還要看什麼？",
-                options: ["排班、加班、獎金、小費、休假與工作強度", "店面裝潢漂不漂亮", "制服顏色", "同事聊天有不有趣"],
-                answer: 0,
-                explain: "服務業薪資常受到排班、加班、獎金、小費、休假和工作強度影響，應整體評估。"
-            },
-            {
-                question: "管理職和一般職在薪資比較時，最需要注意哪一點？",
-                options: ["管理責任、決策壓力、績效目標與工時是否相符", "管理職一定比較高薪且輕鬆", "職稱有主管就不用看工作量", "只看辦公室座位大小"],
-                answer: 0,
-                explain: "管理職通常包含人員管理、決策責任與績效壓力，薪資比較時應檢視責任與報酬是否對等。"
-            }
-        ],
         footerSource: "數據引用來源：勞動部與主計總處 110-113 年「各業受僱員工薪資統計表1 & 表2」",
         footerCopy: "© 2024 EQUALPAY PROJECT. SDG 10 減少不平等行動實踐.",
         lineDataset: "全國性別薪資落差 (%)",
@@ -259,68 +197,6 @@ const I18N = {
         gameResultHigh: "You understand salary fairness very well. You can apply these ideas to salary diagnosis, anonymous reporting, and career planning.",
         gameResultMid: "You understand the basic concepts. Review pay transparency, equal pay, and negotiation preparation to improve further.",
         gameResultLow: "There is still room to improve. Start by learning about fairness benchmarks, salary evidence, and workplace rights.",
-        gameQuestions: [
-            {
-                question: "What is usually the main difference between full-time and part-time work?",
-                options: ["Working hours, benefits, and pay calculation may differ", "Full-time work is always easier", "Part-time workers never have any rights", "Their salaries are always the same"],
-                answer: 0,
-                explain: "Full-time and part-time roles often differ in working hours, benefits, pay calculation, and stability, so job title alone is not enough."
-            },
-            {
-                question: "When evaluating an internship salary or allowance, what should you check first?",
-                options: ["Clear job duties, working hours, and learning goals", "Internships never need to be paid", "Whether unlimited overtime is allowed", "Company reputation is enough"],
-                answer: 0,
-                explain: "Internships should still have clear duties, hours, allowance or salary, learning goals, and responsibility boundaries."
-            },
-            {
-                question: "Before accepting contract-based work, what should you confirm most carefully?",
-                options: ["Contract period, salary, benefits, and renewal terms", "Whether the manager seems friendly", "No written document is needed", "High salary means no need to read terms"],
-                answer: 0,
-                explain: "For contract work, confirm the contract period, pay, benefits, job scope, renewal terms, and early termination conditions."
-            },
-            {
-                question: "What cost do freelancers often underestimate?",
-                options: ["Taxes, insurance, equipment, communication time, and gaps between projects", "What to eat for lunch", "Company uniform", "The location of the time clock"],
-                answer: 0,
-                explain: "Freelance income should not be judged only by one project fee; taxes, insurance, equipment, communication time, and unpaid gaps also matter."
-            },
-            {
-                question: "For sales jobs with a high bonus share, what should be confirmed first?",
-                options: ["Base salary, bonus formula, payment timing, and sales recognition rules", "Only the highest possible income", "Bonuses are always fixed every month", "No need to understand sales targets"],
-                answer: 0,
-                explain: "Sales pay often combines base salary and bonuses, so the formula, timing, returns, and performance rules must be clear."
-            },
-            {
-                question: "When comparing shift or night-shift work, what should you check besides monthly salary?",
-                options: ["Schedule, night-shift allowance, overtime, rest time, and health burden", "Only the company name", "Only the job title", "Working hours do not matter"],
-                answer: 0,
-                explain: "Shift or night work may include allowances and health burdens, so hours, rest, allowances, and workload should be reviewed together."
-            },
-            {
-                question: "For remote or hybrid work, what condition should be checked besides salary?",
-                options: ["Equipment support, communication rules, attendance method, and performance evaluation", "Whether you never need to work", "Whether meetings never happen", "Remote pay is always higher"],
-                answer: 0,
-                explain: "Remote work should clarify equipment support, internet or communication support, meetings, reporting rules, attendance, and evaluation methods."
-            },
-            {
-                question: "For technical jobs, what best strengthens a salary negotiation?",
-                options: ["Portfolio, project outcomes, certifications, or verifiable technical skills", "Only saying you work hard", "Only comparing with a friend’s salary", "Preparing no evidence"],
-                answer: 0,
-                explain: "For technical roles, portfolios, project results, certifications, and measurable contributions are more persuasive than subjective claims."
-            },
-            {
-                question: "When evaluating service industry pay, what should you check besides base salary?",
-                options: ["Scheduling, overtime, bonuses, tips, leave, and workload", "How pretty the store looks", "Uniform color", "Whether coworkers are fun to chat with"],
-                answer: 0,
-                explain: "Service industry pay can be affected by scheduling, overtime, bonuses, tips, leave, and workload, so the whole package matters."
-            },
-            {
-                question: "When comparing management roles with non-management roles, what matters most?",
-                options: ["Whether management responsibility, decision pressure, targets, and hours match the pay", "Management roles are always high-paying and easy", "A manager title means workload does not matter", "Only the size of the office seat"],
-                answer: 0,
-                explain: "Management roles often include people management, decision responsibility, and performance pressure, so pay should match the responsibility."
-            }
-        ],
         footerSource: "Data sources: Ministry of Labor and DGBAS salary statistics tables, ROC Years 110-113.",
         footerCopy: "© 2024 EQUALPAY PROJECT. SDG 10 Action for Reducing Inequality.",
         lineDataset: "National gender pay gap (%)",
@@ -695,31 +571,139 @@ let fairnessGameIndex = 0;
 let fairnessGameScore = 0;
 let fairnessGameAnswered = false;
 let fairnessQuestionOrder = [];
+let aiGameQuestions = [];
+let aiGameLang = null;
+let aiGameLoading = false;
+
+function getGameLoadingText() {
+    return currentLang === 'en' ? 'Generating AI questions...' : 'AI 題目生成中...';
+}
+
+function getGameLoadFailText() {
+    return currentLang === 'en'
+        ? 'AI question generation failed. Please check your Supabase Function, GEMINI_API_KEY, or network settings.'
+        : 'AI 題目產生失敗。請確認 Supabase Function、GEMINI_API_KEY 或網路設定。';
+}
 
 function createFairnessQuestionOrder() {
-    const totalQuestions = I18N.zh.gameQuestions.length;
-    const indexes = Array.from({ length: totalQuestions }, (_, index) => index);
+    const totalQuestions = aiGameQuestions.length;
+    fairnessQuestionOrder = Array.from({ length: Math.min(FAIRNESS_GAME_ROUND_SIZE, totalQuestions) }, (_, index) => index);
+}
 
-    for (let i = indexes.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [indexes[i], indexes[j]] = [indexes[j], indexes[i]];
+function normalizeAiGameQuestions(rawQuestions) {
+    if (!Array.isArray(rawQuestions)) return [];
+
+    return rawQuestions
+        .map(item => {
+            const options = Array.isArray(item.options)
+                ? item.options.map(option => String(option ?? '').trim()).filter(Boolean).slice(0, 4)
+                : [];
+
+            const answer = Number(item.answer);
+
+            return {
+                question: String(item.question ?? '').trim(),
+                options,
+                answer,
+                explain: String(item.explain ?? item.explanation ?? '').trim()
+            };
+        })
+        .filter(item => {
+            return item.question &&
+                item.options.length === 4 &&
+                Number.isInteger(item.answer) &&
+                item.answer >= 0 &&
+                item.answer <= 3 &&
+                item.explain;
+        })
+        .slice(0, FAIRNESS_GAME_ROUND_SIZE);
+}
+
+async function loadAiGameQuestions() {
+    const { data, error } = await db.functions.invoke('generate-game-questions', {
+        body: {
+            lang: currentLang,
+            count: FAIRNESS_GAME_ROUND_SIZE
+        }
+    });
+
+    if (error) {
+        throw error;
     }
 
-    fairnessQuestionOrder = indexes.slice(0, Math.min(FAIRNESS_GAME_ROUND_SIZE, totalQuestions));
+    const questions = normalizeAiGameQuestions(data?.questions);
+
+    if (questions.length < FAIRNESS_GAME_ROUND_SIZE) {
+        throw new Error('AI returned invalid question format');
+    }
+
+    return questions;
 }
 
 function getCurrentFairnessQuestion() {
-    if (fairnessQuestionOrder.length === 0) {
-        createFairnessQuestionOrder();
-    }
+    const questionIndex = fairnessQuestionOrder[fairnessGameIndex] ?? fairnessGameIndex;
+    return aiGameQuestions[questionIndex];
+}
 
-    const questionIndex = fairnessQuestionOrder[fairnessGameIndex];
-    return I18N[currentLang].gameQuestions[questionIndex];
+function showGameLoadingState() {
+    const t = I18N[currentLang];
+    const gameQuestion = document.getElementById('gameQuestion');
+    const gameOptions = document.getElementById('gameOptions');
+    const gameFeedback = document.getElementById('gameFeedback');
+    const gameResult = document.getElementById('gameResult');
+    const gameNextBtn = document.getElementById('gameNextBtn');
+
+    if (!gameQuestion || !gameOptions || !gameFeedback || !gameResult || !gameNextBtn) return;
+
+    document.getElementById('gameProgress').textContent = t.gameProgress(1, FAIRNESS_GAME_ROUND_SIZE);
+    gameQuestion.textContent = getGameLoadingText();
+    document.getElementById('gameScore').textContent = fairnessGameScore;
+    gameOptions.innerHTML = '';
+    gameFeedback.classList.add('hidden');
+    gameFeedback.textContent = '';
+    gameResult.classList.add('hidden');
+    gameResult.innerHTML = '';
+    gameNextBtn.disabled = true;
+    gameNextBtn.textContent = t.gameNext;
+}
+
+function showGameErrorState(message = getGameLoadFailText()) {
+    const t = I18N[currentLang];
+    const gameQuestion = document.getElementById('gameQuestion');
+    const gameOptions = document.getElementById('gameOptions');
+    const gameFeedback = document.getElementById('gameFeedback');
+    const gameResult = document.getElementById('gameResult');
+    const gameNextBtn = document.getElementById('gameNextBtn');
+
+    if (!gameQuestion || !gameOptions || !gameFeedback || !gameResult || !gameNextBtn) return;
+
+    document.getElementById('gameProgress').textContent = t.gameProgress(1, FAIRNESS_GAME_ROUND_SIZE);
+    gameQuestion.textContent = currentLang === 'en' ? 'Unable to load AI questions' : '無法載入 AI 題目';
+    document.getElementById('gameScore').textContent = fairnessGameScore;
+    gameOptions.innerHTML = '';
+    gameResult.classList.add('hidden');
+    gameResult.innerHTML = '';
+    gameNextBtn.disabled = true;
+    gameNextBtn.textContent = t.gameNext;
+
+    gameFeedback.classList.remove('hidden');
+    gameFeedback.className = 'rounded-2xl p-5 mb-6 text-sm leading-relaxed bg-red-50 text-red-700 border border-red-100';
+    gameFeedback.textContent = message;
 }
 
 function updateFairnessGameText() {
     const gameBox = document.getElementById('gameQuestion');
     if (!gameBox) return;
+
+    if (aiGameLoading) {
+        showGameLoadingState();
+        return;
+    }
+
+    if (!aiGameQuestions.length || aiGameLang !== currentLang) {
+        restartFairnessGame();
+        return;
+    }
 
     if (fairnessQuestionOrder.length === 0) {
         createFairnessQuestionOrder();
@@ -732,6 +716,11 @@ function updateFairnessGameText() {
     }
 
     const q = getCurrentFairnessQuestion();
+    if (!q) {
+        showGameErrorState();
+        return;
+    }
+
     document.getElementById('gameProgress').textContent = I18N[currentLang].gameProgress(fairnessGameIndex + 1, total);
     document.getElementById('gameQuestion').textContent = q.question;
     document.getElementById('gameScore').textContent = fairnessGameScore;
@@ -740,7 +729,7 @@ function updateFairnessGameText() {
     const optionsBox = document.getElementById('gameOptions');
     optionsBox.innerHTML = q.options.map((option, index) => `
         <button onclick="answerFairnessQuestion(${index})" class="game-option text-left border border-slate-200 hover:border-indigo-400 hover:bg-indigo-50 rounded-2xl p-5 font-bold transition">
-            ${String.fromCharCode(65 + index)}. ${option}
+            ${String.fromCharCode(65 + index)}. ${escapeHTML(option)}
         </button>
     `).join('');
 
@@ -757,9 +746,14 @@ function updateFairnessGameText() {
 }
 
 function answerFairnessQuestion(selectedIndex) {
-    if (fairnessGameAnswered) return;
+    if (fairnessGameAnswered || aiGameLoading) return;
 
     const q = getCurrentFairnessQuestion();
+    if (!q) {
+        showGameErrorState();
+        return;
+    }
+
     const isCorrect = selectedIndex === q.answer;
     const feedback = document.getElementById('gameFeedback');
     const optionButtons = document.querySelectorAll('.game-option');
@@ -782,16 +776,16 @@ function answerFairnessQuestion(selectedIndex) {
 
     feedback.classList.remove('hidden');
     feedback.className = isCorrect
-        ? "rounded-2xl p-5 mb-6 text-sm leading-relaxed bg-green-50 text-green-700 border border-green-100"
-        : "rounded-2xl p-5 mb-6 text-sm leading-relaxed bg-red-50 text-red-700 border border-red-100";
-    feedback.textContent = `${isCorrect ? "✅" : "💡"} ${q.explain}`;
+        ? 'rounded-2xl p-5 mb-6 text-sm leading-relaxed bg-green-50 text-green-700 border border-green-100'
+        : 'rounded-2xl p-5 mb-6 text-sm leading-relaxed bg-red-50 text-red-700 border border-red-100';
+    feedback.textContent = `${isCorrect ? '✅' : '💡'} ${q.explain}`;
 
     document.getElementById('gameScore').textContent = fairnessGameScore;
     document.getElementById('gameNextBtn').disabled = false;
 }
 
 function nextFairnessQuestion() {
-    if (!fairnessGameAnswered) return;
+    if (!fairnessGameAnswered || aiGameLoading) return;
 
     fairnessGameIndex += 1;
 
@@ -822,18 +816,38 @@ function showFairnessGameResult() {
     result.classList.remove('hidden');
     result.innerHTML = `
         <div class="bg-indigo-50 border border-indigo-100 rounded-2xl p-6">
-            <h4 class="text-2xl font-black text-indigo-900 mb-3">${t.gameResultTitle}</h4>
-            <p class="text-slate-700 leading-relaxed">${message}</p>
+            <h4 class="text-2xl font-black text-indigo-900 mb-3">${escapeHTML(t.gameResultTitle)}</h4>
+            <p class="text-slate-700 leading-relaxed">${escapeHTML(message)}</p>
         </div>
     `;
 }
 
-function restartFairnessGame() {
+async function restartFairnessGame() {
+    if (aiGameLoading) return;
+
     fairnessGameIndex = 0;
     fairnessGameScore = 0;
     fairnessGameAnswered = false;
-    createFairnessQuestionOrder();
-    updateFairnessGameText();
+    fairnessQuestionOrder = [];
+    aiGameQuestions = [];
+    aiGameLang = currentLang;
+    aiGameLoading = true;
+
+    showGameLoadingState();
+
+    try {
+        aiGameQuestions = await loadAiGameQuestions();
+        aiGameLang = currentLang;
+        aiGameLoading = false;
+        createFairnessQuestionOrder();
+        updateFairnessGameText();
+    } catch (error) {
+        console.error('Gemini question generation failed:', error);
+        aiGameLoading = false;
+        aiGameQuestions = [];
+        fairnessQuestionOrder = [];
+        showGameErrorState();
+    }
 }
 
 function getIndustryAdviceZh(industry) {
@@ -874,148 +888,131 @@ function getIndustryAdviceEn(industry) {
     return "Collect salary information from the same industry, education level, and similar age group, then combine it with your own work achievements for a stronger salary discussion.";
 }
 
-function generateSmartAdvice() {
+async function generateSmartAdvice() {
     const t = I18N[currentLang];
     const output = document.getElementById('smartAdviceOutput');
+    const button = document.getElementById('smartAdviceBtn');
 
     if (!lastDiagnosis) {
         alert(t.smartAdviceNeedDiagnosis);
         return;
     }
 
-    const d = lastDiagnosis;
-    const isEn = currentLang === 'en';
-    const genderLabel = d.selectedGender === 'male' ? t.male : t.female;
-    const gapText = Math.abs(d.gapAmount).toLocaleString();
-
-    let levelText, summary, strategies = [], checklist = [], script = "", actionPlan = [];
-
-    if (isEn) {
-        if (d.ratio < 75) {
-            levelText = "High gap risk";
-            summary = `Your current salary is far below the estimated fairness benchmark. The gap is about NT$${gapText} per month, so you should prepare evidence and discuss salary adjustment carefully.`;
-        } else if (d.ratio < 85) {
-            levelText = "Below benchmark";
-            summary = `Your salary is below the fairness benchmark by about NT$${gapText} per month. You should review your job scope and prepare for a salary conversation.`;
-        } else if (d.ratio < 100) {
-            levelText = "Close to benchmark";
-            summary = `Your salary is close to the benchmark but still slightly lower. Focus on documenting performance and preparing for the next review cycle.`;
-        } else {
-            levelText = "Meets benchmark";
-            summary = `Your salary meets or exceeds the current benchmark. The next step is to maintain competitiveness and plan long-term growth.`;
-        }
-
-        strategies.push("Build a salary evidence file: include job responsibilities, achievements, overtime or workload records, and comparable salary data.");
-        strategies.push(getIndustryAdviceEn(d.industry));
-
-        if (d.selectedGender === "female" && d.ratio < 100) {
-            strategies.push("Pay equity angle: document whether people with similar responsibilities receive different treatment, and focus the discussion on role value and equal pay for equal work.");
-        } else if (d.education === "高中" || d.education === "國中及以下") {
-            strategies.push("Skill upgrade angle: choose one practical certificate, course, or portfolio project that can directly increase your value in the current industry.");
-        } else {
-            strategies.push("Career mobility angle: compare internal promotion, transfer, and external job opportunities to understand your real market value.");
-        }
-
-        checklist = [
-            "List three measurable work achievements from the last 3-6 months.",
-            "Write down your current responsibilities and any tasks beyond your original role.",
-            "Collect salary references from reliable public statistics or job platforms.",
-            "Prepare a target salary range instead of only one number.",
-            "Practice a calm, evidence-based conversation with your manager."
-        ];
-
-        script = `I would like to discuss my compensation based on my current responsibilities and recent contributions. According to the benchmark used in this diagnosis, my current salary is at ${d.ratio}% of the estimated fair benchmark. I hope we can review whether my salary matches my role scope and performance, and discuss a reasonable adjustment plan.`;
-
-        actionPlan = [
-            "Week 1: Organize your responsibilities, achievements, and salary benchmark data.",
-            "Week 2: Identify skill gaps and choose one improvement action, such as a certificate, course, or portfolio project.",
-            "Week 3: Prepare your salary conversation outline and target range.",
-            "Week 4: Schedule a discussion with your manager or evaluate alternative opportunities."
-        ];
-    } else {
-        if (d.ratio < 75) {
-            levelText = "高度落差風險";
-            summary = `您的目前薪資明顯低於公平基準，月薪差距約 ${gapText} 元，建議優先整理證據並謹慎規劃談薪。`;
-        } else if (d.ratio < 85) {
-            levelText = "低於基準";
-            summary = `您的薪資低於公平基準，月薪差距約 ${gapText} 元，建議檢視職責範圍並準備薪資溝通。`;
-        } else if (d.ratio < 100) {
-            levelText = "接近基準";
-            summary = `您的薪資接近公平基準，但仍略低於估算值，建議累積績效證據，為下一次調薪或轉職做準備。`;
-        } else {
-            levelText = "符合基準";
-            summary = `您的薪資已達到或高於目前公平基準，後續重點是維持競爭力與規劃長期職涯成長。`;
-        }
-
-        strategies.push("建立薪資佐證資料夾：整理工作職責、實際貢獻、加班或工作量紀錄，以及同產業薪資資料。");
-        strategies.push(getIndustryAdviceZh(d.industry));
-
-        if (d.selectedGender === "female" && d.ratio < 100) {
-            strategies.push("性別平權角度：若同職位、同責任卻存在薪資差距，建議以職務價值與同工同酬作為溝通主軸。");
-        } else if (d.education === "高中" || d.education === "國中及以下") {
-            strategies.push("技能提升角度：選擇一項能直接增加產業競爭力的證照、課程或作品集，提升談薪籌碼。");
-        } else {
-            strategies.push("職涯流動角度：比較內部調薪、轉部門與外部職缺，確認自己的實際市場價值。");
-        }
-
-        checklist = [
-            "列出近 3 到 6 個月內最具體的三項工作成果。",
-            "整理目前職責，以及超出原本工作範圍的任務。",
-            "蒐集官方統計或求職平台上的薪資參考資料。",
-            "準備一個合理薪資區間，不要只準備單一數字。",
-            "用冷靜、以證據為主的方式練習與主管溝通。"
-        ];
-
-        script = `我想根據目前的工作職責與近期貢獻，討論薪資是否有調整空間。依照本系統的公平基準估算，我目前薪資約為基準的 ${d.ratio}%。希望能一起檢視我的職務內容、績效成果與薪資是否相符，並討論合理的調整方向。`;
-
-        actionPlan = [
-            "第 1 週：整理職職、成果與薪資基準資料。",
-            "第 2 週：確認自己的技能缺口，選擇一項證照、課程或作品集改善方向。",
-            "第 3 週：準備談薪大綱與合理薪資區間。",
-            "第 4 週：安排與主管溝通，或同步評估其他職涯機會。"
-        ];
-    }
-
     output.classList.remove('hidden');
     output.innerHTML = `
-        <div class="space-y-6">
-            <div>
-                <p class="text-xs font-black text-indigo-600 uppercase tracking-widest mb-2">${levelText}</p>
-                <h6 class="text-2xl font-black text-slate-900 mb-3">${isEn ? "Personalized Diagnosis Summary" : "個人化診斷摘要"}</h6>
-                <p>${summary}</p>
-                <p class="mt-3 text-sm text-slate-500">
-                    ${isEn ? "Diagnosis conditions" : "診斷條件"}：
-                    ${displayLabel(d.year)}｜${displayLabel(d.education)}｜${displayLabel(d.age)}｜${displayLabel(d.industry)}｜${genderLabel}
-                </p>
-            </div>
-
-            <div>
-                <h6 class="font-black text-slate-900 mb-3">${isEn ? "Improvement Strategies" : "改善策略"}</h6>
-                <ul class="list-disc pl-6 space-y-2">
-                    ${strategies.map(item => `<li>${item}</li>`).join('')}
-                </ul>
-            </div>
-
-            <div>
-                <h6 class="font-black text-slate-900 mb-3">${isEn ? "Negotiation Preparation Checklist" : "談薪準備清單"}</h6>
-                <ul class="list-disc pl-6 space-y-2">
-                    ${checklist.map(item => `<li>${item}</li>`).join('')}
-                </ul>
-            </div>
-
-            <div>
-                <h6 class="font-black text-slate-900 mb-3">${isEn ? "Suggested Conversation Script" : "談薪話術範例"}</h6>
-                <div class="bg-white border border-slate-200 rounded-2xl p-5 text-slate-600">${script}</div>
-            </div>
-
-            <div>
-                <h6 class="font-black text-slate-900 mb-3">${isEn ? "30-day Action Plan" : "30 天行動計畫"}</h6>
-                <ol class="list-decimal pl-6 space-y-2">
-                    ${actionPlan.map(item => `<li>${item}</li>`).join('')}
-                </ol>
-            </div>
+        <div class="text-slate-600 font-bold">
+            ${currentLang === 'en' ? 'AI diagnosis is generating, please wait...' : 'AI 診斷建議產生中，請稍候...'}
         </div>
     `;
+
+    if (button) {
+        button.disabled = true;
+        button.textContent = currentLang === 'en' ? "Generating..." : "產生中...";
+    }
+
+    try {
+        const { data, error } = await db.functions.invoke("generate-salary-diagnosis", {
+            body: {
+                lang: currentLang,
+                diagnosis: {
+                    year: lastDiagnosis.year,
+                    education: lastDiagnosis.education,
+                    age: lastDiagnosis.age,
+                    industry: lastDiagnosis.industry,
+                    salary: lastDiagnosis.salary,
+                    selectedGender: lastDiagnosis.selectedGender,
+                    fairBenchmark: lastDiagnosis.fairBenchmark,
+                    ratio: lastDiagnosis.ratio,
+                    score: lastDiagnosis.score,
+                    gapAmount: lastDiagnosis.gapAmount,
+                    resultStatus: lastDiagnosis.resultStatus
+                }
+            }
+        });
+
+        if (error) {
+            console.error(error);
+            throw error;
+        }
+
+        const isEn = currentLang === 'en';
+
+        output.innerHTML = `
+            <div class="space-y-6">
+                <div>
+                    <p class="text-xs font-black text-indigo-600 uppercase tracking-widest mb-2">
+                        ${escapeHTML(data.level || (isEn ? "AI Diagnosis" : "AI 診斷"))}
+                    </p>
+
+                    <h6 class="text-2xl font-black text-slate-900 mb-3">
+                        ${isEn ? "AI Salary Fairness Summary" : "AI 薪資公平性摘要"}
+                    </h6>
+
+                    <p>${escapeHTML(data.summary || "")}</p>
+
+                    <p class="mt-3 text-sm text-slate-500">
+                        ${isEn ? "Diagnosis conditions" : "診斷條件"}：
+                        ${displayLabel(lastDiagnosis.year)}｜
+                        ${displayLabel(lastDiagnosis.education)}｜
+                        ${displayLabel(lastDiagnosis.age)}｜
+                        ${displayLabel(lastDiagnosis.industry)}｜
+                        ${lastDiagnosis.selectedGender === 'male' ? t.male : t.female}
+                    </p>
+                </div>
+
+                <div>
+                    <h6 class="font-black text-slate-900 mb-3">
+                        ${isEn ? "Improvement Strategies" : "改善策略"}
+                    </h6>
+                    <ul class="list-disc pl-6 space-y-2">
+                        ${(data.strategies || []).map(item => `<li>${escapeHTML(item)}</li>`).join('')}
+                    </ul>
+                </div>
+
+                <div>
+                    <h6 class="font-black text-slate-900 mb-3">
+                        ${isEn ? "Negotiation Preparation Checklist" : "談薪準備清單"}
+                    </h6>
+                    <ul class="list-disc pl-6 space-y-2">
+                        ${(data.checklist || []).map(item => `<li>${escapeHTML(item)}</li>`).join('')}
+                    </ul>
+                </div>
+
+                <div>
+                    <h6 class="font-black text-slate-900 mb-3">
+                        ${isEn ? "Suggested Conversation Script" : "談薪話術範例"}
+                    </h6>
+                    <div class="bg-white border border-slate-200 rounded-2xl p-5 text-slate-600 leading-relaxed">
+                        ${escapeHTML(data.script || "")}
+                    </div>
+                </div>
+
+                <div>
+                    <h6 class="font-black text-slate-900 mb-3">
+                        ${isEn ? "Action Plan" : "行動計畫"}
+                    </h6>
+                    <ol class="list-decimal pl-6 space-y-2">
+                        ${(data.actionPlan || []).map(item => `<li>${escapeHTML(item)}</li>`).join('')}
+                    </ol>
+                </div>
+            </div>
+        `;
+    } catch (error) {
+        console.error(error);
+
+        output.innerHTML = `
+            <div class="bg-red-50 border border-red-100 text-red-700 rounded-2xl p-5">
+                ${currentLang === 'en'
+                    ? 'AI diagnosis failed. Please check Supabase Function, GEMINI_API_KEY, or network settings.'
+                    : 'AI 診斷建議產生失敗，請確認 Supabase Function、GEMINI_API_KEY 或網路設定。'}
+            </div>
+        `;
+    } finally {
+        if (button) {
+            button.disabled = false;
+            button.textContent = t.smartAdviceButton;
+        }
+    }
 }
 
 function generateSolutions(gender, edu) {
