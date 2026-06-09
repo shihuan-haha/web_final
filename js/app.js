@@ -92,68 +92,6 @@ const I18N = {
         gameResultHigh: "你很了解薪資公平觀念！可以把這些概念應用在薪資診斷、匿名回報與職涯規劃中。",
         gameResultMid: "你已經掌握基本概念。建議再熟悉薪資透明、同工同酬與談薪準備方式。",
         gameResultLow: "還有進步空間。建議先從了解公平基準、薪資資料蒐集與職場權益開始。",
-        gameQuestions: [
-            {
-                question: "全職工作和兼職工作最主要的差異通常是什麼？",
-                options: ["工作時數、福利與薪資計算方式可能不同", "全職一定比較輕鬆", "兼職一定沒有任何權益", "兩者薪資永遠相同"],
-                answer: 0,
-                explain: "全職與兼職通常在工時、福利、薪資計算方式與工作穩定性上有所差異，不能只看職稱判斷。"
-            },
-            {
-                question: "實習工作在評估薪資或津貼時，最應該注意什麼？",
-                options: ["是否有明確工作內容、工時與學習目標", "只要叫實習就不用給任何報酬", "是否能無限加班", "公司名氣越大就不用看條件"],
-                answer: 0,
-                explain: "實習仍應確認工作內容、工時、津貼或薪資、學習目標與責任範圍，避免實習變成不合理勞動。"
-            },
-            {
-                question: "約聘或契約型工作在接受前，最需要確認哪一項？",
-                options: ["契約期間、薪資、福利與續約條件", "主管看起來親切就好", "不用簽任何文件", "只要薪水高就不用看條款"],
-                answer: 0,
-                explain: "契約型工作要特別確認期間、薪資、福利、工作內容、續約方式與提前終止條件。"
-            },
-            {
-                question: "接案或自由工作者最容易忽略哪一種成本？",
-                options: ["稅務、保險、設備、溝通與未接案期間成本", "午餐吃什麼", "公司制服", "固定打卡機位置"],
-                answer: 0,
-                explain: "接案收入不能只看單次報價，還要考慮稅務、保險、設備、溝通時間與空窗期成本。"
-            },
-            {
-                question: "業務或銷售工作如果薪資包含高比例獎金，最應該先確認什麼？",
-                options: ["底薪、獎金公式、發放時間與業績認定方式", "只看最高可能收入", "獎金一定每月固定", "不用了解業績目標"],
-                answer: 0,
-                explain: "業務薪資常由底薪與獎金組成，應先確認獎金計算公式、發放時間、退單處理與業績認定規則。"
-            },
-            {
-                question: "輪班或夜班工作在比較薪資時，除了月薪還要看什麼？",
-                options: ["班表、夜班津貼、加班、休息時間與健康負荷", "只看公司名字", "只看職稱", "不用看工時"],
-                answer: 0,
-                explain: "輪班或夜班工作可能有額外津貼與健康負荷，應同時比較工時、休息、津貼與實際工作壓力。"
-            },
-            {
-                question: "遠端或混合辦公工作在薪資外，還需要確認哪個條件？",
-                options: ["設備補助、通訊規範、出勤方式與成果評估", "是否每天都不用工作", "是否永遠不用開會", "薪資一定比現場工作高"],
-                answer: 0,
-                explain: "遠端工作應確認設備、網路或通訊補助、會議與回報規範、出勤管理和成果評估方式。"
-            },
-            {
-                question: "技術型工作在談薪時，哪一項最能增加說服力？",
-                options: ["作品集、專案成果、證照或可驗證的技術能力", "只說自己很努力", "只比較朋友薪水", "完全不準備資料"],
-                answer: 0,
-                explain: "技術型工作談薪時，作品集、專案成果、證照和可量化貢獻會比單純主觀描述更有說服力。"
-            },
-            {
-                question: "服務業工作在評估薪資是否合理時，除了底薪還要看什麼？",
-                options: ["排班、加班、獎金、小費、休假與工作強度", "店面裝潢漂不漂亮", "制服顏色", "同事聊天有不有趣"],
-                answer: 0,
-                explain: "服務業薪資常受到排班、加班、獎金、小費、休假和工作強度影響，應整體評估。"
-            },
-            {
-                question: "管理職和一般職在薪資比較時，最需要注意哪一點？",
-                options: ["管理責任、決策壓力、績效目標與工時是否相符", "管理職一定比較高薪且輕鬆", "職稱有主管就不用看工作量", "只看辦公室座位大小"],
-                answer: 0,
-                explain: "管理職通常包含人員管理、決策責任與績效壓力，薪資比較時應檢視責任與報酬是否對等。"
-            }
-        ],
         footerSource: "數據引用來源：勞動部與主計總處 110-113 年「各業受僱員工薪資統計表1 & 表2」",
         footerCopy: "© 2024 EQUALPAY PROJECT. SDG 10 減少不平等行動實踐.",
         lineDataset: "全國性別薪資落差 (%)",
@@ -257,68 +195,6 @@ const I18N = {
         gameResultHigh: "You understand salary fairness very well. You can apply these ideas to salary diagnosis, anonymous reporting, and career planning.",
         gameResultMid: "You understand the basic concepts. Review pay transparency, equal pay, and negotiation preparation to improve further.",
         gameResultLow: "There is still room to improve. Start by learning about fairness benchmarks, salary evidence, and workplace rights.",
-        gameQuestions: [
-            {
-                question: "What is usually the main difference between full-time and part-time work?",
-                options: ["Working hours, benefits, and pay calculation may differ", "Full-time work is always easier", "Part-time workers never have any rights", "Their salaries are always the same"],
-                answer: 0,
-                explain: "Full-time and part-time roles often differ in working hours, benefits, pay calculation, and stability, so job title alone is not enough."
-            },
-            {
-                question: "When evaluating an internship salary or allowance, what should you check first?",
-                options: ["Clear job duties, working hours, and learning goals", "Internships never need to be paid", "Whether unlimited overtime is allowed", "Company reputation is enough"],
-                answer: 0,
-                explain: "Internships should still have clear duties, hours, allowance or salary, learning goals, and responsibility boundaries."
-            },
-            {
-                question: "Before accepting contract-based work, what should you confirm most carefully?",
-                options: ["Contract period, salary, benefits, and renewal terms", "Whether the manager seems friendly", "No written document is needed", "High salary means no need to read terms"],
-                answer: 0,
-                explain: "For contract work, confirm the contract period, pay, benefits, job scope, renewal terms, and early termination conditions."
-            },
-            {
-                question: "What cost do freelancers often underestimate?",
-                options: ["Taxes, insurance, equipment, communication time, and gaps between projects", "What to eat for lunch", "Company uniform", "The location of the time clock"],
-                answer: 0,
-                explain: "Freelance income should not be judged only by one project fee; taxes, insurance, equipment, communication time, and unpaid gaps also matter."
-            },
-            {
-                question: "For sales jobs with a high bonus share, what should be confirmed first?",
-                options: ["Base salary, bonus formula, payment timing, and sales recognition rules", "Only the highest possible income", "Bonuses are always fixed every month", "No need to understand sales targets"],
-                answer: 0,
-                explain: "Sales pay often combines base salary and bonuses, so the formula, timing, returns, and performance rules must be clear."
-            },
-            {
-                question: "When comparing shift or night-shift work, what should you check besides monthly salary?",
-                options: ["Schedule, night-shift allowance, overtime, rest time, and health burden", "Only the company name", "Only the job title", "Working hours do not matter"],
-                answer: 0,
-                explain: "Shift or night work may include allowances and health burdens, so hours, rest, allowances, and workload should be reviewed together."
-            },
-            {
-                question: "For remote or hybrid work, what condition should be checked besides salary?",
-                options: ["Equipment support, communication rules, attendance method, and performance evaluation", "Whether you never need to work", "Whether meetings never happen", "Remote pay is always higher"],
-                answer: 0,
-                explain: "Remote work should clarify equipment support, internet or communication support, meetings, reporting rules, attendance, and evaluation methods."
-            },
-            {
-                question: "For technical jobs, what best strengthens a salary negotiation?",
-                options: ["Portfolio, project outcomes, certifications, or verifiable technical skills", "Only saying you work hard", "Only comparing with a friend’s salary", "Preparing no evidence"],
-                answer: 0,
-                explain: "For technical roles, portfolios, project results, certifications, and measurable contributions are more persuasive than subjective claims."
-            },
-            {
-                question: "When evaluating service industry pay, what should you check besides base salary?",
-                options: ["Scheduling, overtime, bonuses, tips, leave, and workload", "How pretty the store looks", "Uniform color", "Whether coworkers are fun to chat with"],
-                answer: 0,
-                explain: "Service industry pay can be affected by scheduling, overtime, bonuses, tips, leave, and workload, so the whole package matters."
-            },
-            {
-                question: "When comparing management roles with non-management roles, what matters most?",
-                options: ["Whether management responsibility, decision pressure, targets, and hours match the pay", "Management roles are always high-paying and easy", "A manager title means workload does not matter", "Only the size of the office seat"],
-                answer: 0,
-                explain: "Management roles often include people management, decision responsibility, and performance pressure, so pay should match the responsibility."
-            }
-        ],
         footerSource: "Data sources: Ministry of Labor and DGBAS salary statistics tables, ROC Years 110-113.",
         footerCopy: "© 2024 EQUALPAY PROJECT. SDG 10 Action for Reducing Inequality.",
         lineDataset: "National gender pay gap (%)",
@@ -690,25 +566,13 @@ function getGameLoadingText() {
 
 function getGameLoadFailText() {
     return currentLang === 'en'
-        ? 'AI question generation failed. The built-in question bank is being used for this round.'
-        : 'AI 題目產生失敗，本回合先使用內建題庫。';
+        ? 'AI question generation failed. Please check your Supabase Function, GEMINI_API_KEY, or network settings.'
+        : 'AI 題目產生失敗。請確認 Supabase Function、GEMINI_API_KEY 或網路設定。';
 }
 
 function createFairnessQuestionOrder() {
-    const totalQuestions = aiGameQuestions.length || I18N[currentLang].gameQuestions.length;
+    const totalQuestions = aiGameQuestions.length;
     fairnessQuestionOrder = Array.from({ length: Math.min(FAIRNESS_GAME_ROUND_SIZE, totalQuestions) }, (_, index) => index);
-}
-
-function getLocalFallbackQuestions() {
-    const source = I18N[currentLang].gameQuestions || I18N.zh.gameQuestions;
-    const indexes = Array.from({ length: source.length }, (_, index) => index);
-
-    for (let i = indexes.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [indexes[i], indexes[j]] = [indexes[j], indexes[i]];
-    }
-
-    return indexes.slice(0, FAIRNESS_GAME_ROUND_SIZE).map(index => source[index]);
 }
 
 function normalizeAiGameQuestions(rawQuestions) {
@@ -762,12 +626,6 @@ async function loadAiGameQuestions() {
 }
 
 function getCurrentFairnessQuestion() {
-    if (!aiGameQuestions.length) {
-        aiGameQuestions = getLocalFallbackQuestions();
-        aiGameLang = currentLang;
-        createFairnessQuestionOrder();
-    }
-
     const questionIndex = fairnessQuestionOrder[fairnessGameIndex] ?? fairnessGameIndex;
     return aiGameQuestions[questionIndex];
 }
@@ -792,6 +650,30 @@ function showGameLoadingState() {
     gameResult.innerHTML = '';
     gameNextBtn.disabled = true;
     gameNextBtn.textContent = t.gameNext;
+}
+
+function showGameErrorState(message = getGameLoadFailText()) {
+    const t = I18N[currentLang];
+    const gameQuestion = document.getElementById('gameQuestion');
+    const gameOptions = document.getElementById('gameOptions');
+    const gameFeedback = document.getElementById('gameFeedback');
+    const gameResult = document.getElementById('gameResult');
+    const gameNextBtn = document.getElementById('gameNextBtn');
+
+    if (!gameQuestion || !gameOptions || !gameFeedback || !gameResult || !gameNextBtn) return;
+
+    document.getElementById('gameProgress').textContent = t.gameProgress(1, FAIRNESS_GAME_ROUND_SIZE);
+    gameQuestion.textContent = currentLang === 'en' ? 'Unable to load AI questions' : '無法載入 AI 題目';
+    document.getElementById('gameScore').textContent = fairnessGameScore;
+    gameOptions.innerHTML = '';
+    gameResult.classList.add('hidden');
+    gameResult.innerHTML = '';
+    gameNextBtn.disabled = true;
+    gameNextBtn.textContent = t.gameNext;
+
+    gameFeedback.classList.remove('hidden');
+    gameFeedback.className = 'rounded-2xl p-5 mb-6 text-sm leading-relaxed bg-red-50 text-red-700 border border-red-100';
+    gameFeedback.textContent = message;
 }
 
 function updateFairnessGameText() {
@@ -819,6 +701,11 @@ function updateFairnessGameText() {
     }
 
     const q = getCurrentFairnessQuestion();
+    if (!q) {
+        showGameErrorState();
+        return;
+    }
+
     document.getElementById('gameProgress').textContent = I18N[currentLang].gameProgress(fairnessGameIndex + 1, total);
     document.getElementById('gameQuestion').textContent = q.question;
     document.getElementById('gameScore').textContent = fairnessGameScore;
@@ -847,6 +734,11 @@ function answerFairnessQuestion(selectedIndex) {
     if (fairnessGameAnswered || aiGameLoading) return;
 
     const q = getCurrentFairnessQuestion();
+    if (!q) {
+        showGameErrorState();
+        return;
+    }
+
     const isCorrect = selectedIndex === q.answer;
     const feedback = document.getElementById('gameFeedback');
     const optionButtons = document.querySelectorAll('.game-option');
@@ -930,23 +822,18 @@ async function restartFairnessGame() {
 
     try {
         aiGameQuestions = await loadAiGameQuestions();
-    } catch (error) {
-        console.error('Gemini question generation failed:', error);
-        aiGameQuestions = getLocalFallbackQuestions();
-
-        const feedback = document.getElementById('gameFeedback');
-        if (feedback) {
-            feedback.classList.remove('hidden');
-            feedback.className = 'rounded-2xl p-5 mb-6 text-sm leading-relaxed bg-amber-50 text-amber-800 border border-amber-100';
-            feedback.textContent = getGameLoadFailText();
-        }
-    } finally {
+        aiGameLang = currentLang;
         aiGameLoading = false;
         createFairnessQuestionOrder();
         updateFairnessGameText();
+    } catch (error) {
+        console.error('Gemini question generation failed:', error);
+        aiGameLoading = false;
+        aiGameQuestions = [];
+        fairnessQuestionOrder = [];
+        showGameErrorState();
     }
 }
-
 
 function getIndustryAdviceZh(industry) {
     if (industry.includes("出版影音") || industry.includes("資通訊")) {
