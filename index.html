@@ -39,49 +39,85 @@
         </div>
     </nav>
 
-    <header class="hero-gradient px-6 md:px-10 pt-20 pb-10">
-        <div class="max-w-5xl mx-auto animate-fade">
-            <span class="case-eyebrow">SDG 10：減少職場不平等</span>
-            <div class="grid grid-cols-1 xl:grid-cols-[1fr_340px] gap-12 mt-12 items-end">
-                <div>
-                    <h1 class="hero-title text-black">
-                        <span class="title-line">看見薪資</span>
-                        <span class="title-line"><span class="title-accent">看見公平</span></span>
-                    </h1>
+    <header class="hero-gradient px-6 md:px-10 pt-24 pb-10">
+        <!-- 外層維持原有的 max-w-[1500px] 動態淡入 -->
+        <div class="max-w-[1500px] mx-auto animate-fade">
+            
+            <!-- ✨ 新增核心點：用 max-w-6xl (1152px) 容器包裹，強制讓所有內容向畫面中央靠攏 -->
+            <div class="max-w-6xl mx-auto">
+                
+                <!-- 放大版 SDG 10 標籤（此時會精準與靠中的左側標題對齊線貼齊） -->
+                <span class="case-eyebrow !text-base md:!text-lg !px-6 !py-3 font-black tracking-wide block w-max">
+                    SDG 10：減少職場不平等
+                </span>
+                
+                <!-- 雙欄佈局：因為被外層 max-w-6xl 限制，左右兩側的間距會大幅縮小，達成完美的視覺平衡 -->
+                <div class="grid grid-cols-1 xl:grid-cols-[1fr_420px] gap-16 mt-10 items-center">
+                    
+                    <!-- 左側：頂天立地的大標題 -->
+                    <div>
+                        <h1 class="hero-title text-black">
+                            <span class="title-line">看見薪資</span>
+                            <span class="title-line"><span class="title-accent">看見公平</span></span>
+                        </h1>
+                    </div>
+                    
+                    <!-- 右側：垂直排版大卡片面版 -->
+                    <div class="border-t-2 xl:border-t-0 xl:border-l-2 border-black/10 pt-8 xl:pt-0 xl:pl-12 flex flex-col gap-6 w-full max-w-md shrink-0">
+                        
+                        <!-- 數據卡片 1 -->
+                        <div class="bg-white/70 border border-black/5 rounded-[2rem] p-6 md:p-8 shadow-md hover:shadow-xl transition-all duration-300 flex flex-col justify-between min-h-[140px]">
+                            <span class="text-xs md:text-sm text-slate-400 font-black tracking-wider block uppercase mb-3" id="heroStat1Label">全國性別薪資差距 (113年)</span>
+                            <span class="text-5xl md:text-6xl font-black text-emerald-800 tracking-tight">12.5%</span>
+                        </div>
+                        
+                        <!-- 數據卡片 2 -->
+                        <div class="bg-white/70 border border-black/5 rounded-[2rem] p-6 md:p-8 shadow-md hover:shadow-xl transition-all duration-300 flex flex-col justify-between min-h-[140px]">
+                            <span class="text-xs md:text-sm text-slate-400 font-black tracking-wider block uppercase mb-3" id="heroStat2Label">全台薪資最高峰年齡</span>
+                            <span class="text-5xl md:text-6xl font-black text-indigo-600 tracking-tight" id="heroStat2Val">40-49歲</span>
+                        </div>
+                        
+                    </div>
+
                 </div>
-            </div>
+            </div> <!-- 結束 max-w-6xl 容器 -->
+
         </div>
 
+        <!-- 下方的 project-visual (深綠色大方塊) 結構維持不變 ... -->
         <div class="max-w-[1500px] mx-auto mt-16">
-            <div class="project-visual rounded-[3rem] p-8 md:p-12">
-                <div class="floating-card max-w-xl rounded-[2rem] p-8 md:p-10">
+            <div class="project-visual rounded-[3rem] p-6 md:p-12 grid grid-cols-1 xl:grid-cols-[460px_1fr] gap-8 items-stretch relative">
+                
+                <div class="floating-card bg-white rounded-[2rem] p-8 md:p-10 flex flex-col justify-center shadow-2xl relative z-10">
                     <div class="text-sm font-black text-emerald-800 mb-5 tracking-[.18em] uppercase" id="introCardLabel">ABOUT EQUALPAY</div>
                     <p id="introCardText1" class="text-2xl md:text-3xl leading-snug font-black text-black">
                         EqualPay 是一個以薪資透明與職場公平為核心的互動式平台。
                     </p>
-                    <p id="introCardText2" class="mt-5 text-slate-600 font-bold leading-loose">
+                    <p id="introCardText2" class="mt-5 text-slate-600 font-bold leading-loose text-sm md:text-base">
                         透過薪資診斷、匿名回報與知識小挑戰，幫助使用者了解自己的薪資是否接近市場基準，也讓更多真實職場資訊被看見。
                     </p>
                 </div>
-                <div class="floating-card mt-8 ml-auto max-w-3xl rounded-[2rem] p-7 md:p-8">
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
-                        <div class="intro-feature-card">
+
+                <div class="floating-card bg-white rounded-[2rem] p-8 flex flex-col justify-center shadow-2xl relative z-10">
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 text-left">
+                        <div class="intro-feature-card bg-slate-50 border border-slate-100 p-5 rounded-2xl">
                             <div class="text-xs font-black text-slate-400 mb-3">01</div>
-                            <h3 id="introFeature1Title" class="text-2xl font-black text-emerald-800 mb-3">薪資診斷</h3>
-                            <p id="introFeature1Desc" class="text-sm text-slate-600 font-bold leading-relaxed">快速比較個人薪資與市場公平基準</p>
+                            <h3 id="introFeature1Title" class="text-xl font-black text-emerald-800 mb-2">薪資診斷</h3>
+                            <p id="introFeature1Desc" class="text-xs text-slate-600 font-bold leading-relaxed">快速比較個人薪資與市場公平基準</p>
                         </div>
-                        <div class="intro-feature-card">
+                        <div class="intro-feature-card bg-slate-50 border border-slate-100 p-5 rounded-2xl">
                             <div class="text-xs font-black text-slate-400 mb-3">02</div>
-                            <h3 id="introFeature2Title" class="text-2xl font-black text-emerald-800 mb-3">匿名回報</h3>
-                            <p id="introFeature2Desc" class="text-sm text-slate-600 font-bold leading-relaxed">分享真實公司的薪資與福利資訊</p>
+                            <h3 id="introFeature2Title" class="text-xl font-black text-emerald-800 mb-2">匿名回報</h3>
+                            <p id="introFeature2Desc" class="text-xs text-slate-600 font-bold leading-relaxed">分享真實公司的薪資與福利資訊</p>
                         </div>
-                        <div class="intro-feature-card">
+                        <div class="intro-feature-card bg-slate-50 border border-slate-100 p-5 rounded-2xl">
                             <div class="text-xs font-black text-slate-400 mb-3">03</div>
-                            <h3 id="introFeature3Title" class="text-2xl font-black text-emerald-800 mb-3">知識挑戰</h3>
-                            <p id="introFeature3Desc" class="text-sm text-slate-600 font-bold leading-relaxed">認識不同工作類型與薪資條件</p>
+                            <h3 id="introFeature3Title" class="text-xl font-black text-emerald-800 mb-2">知識挑戰</h3>
+                            <p id="introFeature3Desc" class="text-xs text-slate-600 font-bold leading-relaxed">認識不同工作類型與薪資條件</p>
                         </div>
                     </div>
                 </div>
+
             </div>
         </div>
     </header>
@@ -249,6 +285,102 @@
                 </div>
             </div>
         </section>
+
+<!-- 延伸功能：學歷投資報酬率 (ROI) 計算器 -->
+        <section id="edu-roi" class="mb-24">
+            <!-- 修正點 1：還原成與全站統一的 420px 側邊對齊線，確保網頁上下線條一致 -->
+            <div class="grid grid-cols-1 xl:grid-cols-[420px_1fr] gap-10 items-start mb-10">
+                <div>
+                    <p class="section-label" id="roiLabel">Education ROI</p>
+                    <!-- 修正點 2：拿掉 .section-title，改用 text-3xl md:text-4xl xl:text-5xl 精准控製字體大小 -->
+                    <!-- 同時利用 tracking-tight (緊湊字距) 與 leading-[1.2] (舒適行高) 讓中文排版極具高級感 -->
+                    <h2 class="text-3xl md:text-4xl xl:text-5xl font-black tracking-tight leading-[1.2] text-black mt-4" id="roiTitle">
+                        該不該讀研究所？<br>
+                        <span class="text-indigo-600">學歷投報率</span>計算
+                    </h2>
+                </div>
+                <!-- 修正點 3：配合文字大小，將右側內文的上方間距微調為 xl:pt-10，達成完美水平對齊 -->
+                <p class="text-xl leading-relaxed text-slate-600 max-w-3xl xl:pt-10" id="roiDesc">
+                    交叉比對 113 年官方完整數據，深度解析不同產業中「碩士」相比於「學士」的薪資溢價，出社會前幫自己做最精準的職涯投資評估。
+                </p>
+            </div>
+        <div class="case-block rounded-[2.5rem] p-8 md:p-12">
+        <div class="grid grid-cols-1 lg:grid-cols-[380px_1fr] gap-12">
+            <!-- 左側：產業選擇與觸發按鈕 -->
+            <div class="space-y-6">
+                <div class="space-y-3">
+                    <label class="text-sm font-black text-slate-700" id="roiSelectLabel">請選擇欲評估的行业別：</label>
+                    <select id="roiIndustry" class="field" onchange="calculateEduROI()">
+                        <option value="出版影音及資通訊業">出版影音及資通訊業</option>
+                        <option value="住宿及餐飲業">住宿及餐飲業</option>
+                        <option value="全體">全體</option>
+                        <option value="工業">工業</option>
+                        <option value="製造業">製造業</option>
+                        <option value="電力及燃氣供應業">電力及燃氣供應業</option>
+                        <option value="用水供應及污染整治業">用水供應及污染整治業</option>
+                        <option value="營建工程業">營建工程業</option>
+                        <option value="服務業">服務業</option>
+                        <option value="批發及零售業">批發及零售業</option>
+                        <option value="運輸及倉儲業">運輸及倉儲業</option>
+                        <option value="金融及保險業">金融及保險業</option>
+                        <option value="不動產業">不動產業</option>
+                        <option value="專業科學及技術服務業">專業科學及技術服務業</option>
+                        <option value="支援服務業">支援服務業</option>
+                        <option value="教育業">教育業</option>
+                        <option value="醫療保健及社會工作服務業">醫療保健及社會工作服務業</option>
+                        <option value="藝術娛樂及休閒服務業">藝術娛樂及休閒服務業</option>
+                        <option value="其他服務業">其他服務業</option>
+                    </select>
+                </div>
+                <div class="bg-amber-50 border border-amber-200 rounded-2xl p-4 text-xs text-amber-800 leading-relaxed" id="roiNote">
+                    💡 數據分析幕後：本計算器動態撈取底層核心報表，排除極端值，精算同產業內之學歷資本實質溢價率。
+                </div>
+            </div>
+
+            <!-- 右側：動態數據視覺化與 AI 數據指南面板 -->
+            <div id="roiResultPanel" class="bg-white/80 border border-black/5 rounded-[2rem] p-6 md:p-8 grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- 數據條對比 -->
+                <div class="space-y-6 flex flex-col justify-center">
+                    <div>
+                        <div class="flex justify-between text-sm font-black text-slate-500 mb-2">
+                            <span>專科及大學 (學士)</span>
+                            <span id="roiUnivText">-- 萬/年</span>
+                        </div>
+                        <div class="w-full bg-slate-200 h-6 rounded-full overflow-hidden">
+                            <div id="roiUnivBar" class="bg-slate-400 h-full transition-all duration-500" style="width: 0%"></div>
+                        </div>
+                        </div>
+                    <div>
+                        <div class="flex justify-between text-sm font-black text-emerald-800 mb-2">
+                            <span>研究所 (碩士)</span>
+                            <span id="roiGradText">-- 萬/年</span>
+                        </div>
+                        <div class="w-full bg-slate-200 h-6 rounded-full overflow-hidden">
+                            <div id="roiGradBar" class="bg-indigo-600 h-full transition-all duration-500" style="width: 0%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex flex-col justify-between border-t md:border-t-0 md:border-l border-black/10 pt-6 md:pt-0 md:pl-8">
+                    <div>
+                        <span class="px-3 py-1 bg-lime-300 text-black text-xs font-black rounded-full uppercase tracking-wider" id="roiBadge">Premium ROI</span>
+                        <div class="text-4xl font-black text-black mt-3 mb-1" id="roiPremiumText">+0 萬 <span class="text-lg font-bold text-slate-500">/ 年</span></div>
+                        <p class="text-sm font-bold text-emerald-700" id="roiPercentText">學歷加薪幅度：+0%</p>
+                    </div>
+                    <div class="mt-6 p-4 bg-slate-50 rounded-2xl border border-slate-100">
+                        <h4 class="font-black text-base text-slate-900 mb-1 flex items-center gap-2">
+                            <span>📊</span> <span id="roiGuideTitle">大數據職涯指南</span>
+                        </h4>
+                        <p class="text-xs md:text-sm text-slate-600 leading-relaxed" id="roiComment">請選擇產業以產出專屬指南。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
 
         <section id="report" class="mb-24">
             <div class="grid grid-cols-1 xl:report-heading-grid gap-10 items-end mb-12">

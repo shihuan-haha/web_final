@@ -12,7 +12,8 @@ const I18N = {
         status: "已自動載入 110-113 年官方完整數據",
         badge: "SDG 10：減少職場不平等",
         heroTitle: `<span class="title-line">看見薪資</span><span class="title-line"><span class="title-accent">看見公平</span></span>`,
-        heroDesc: "無需上傳任何檔案。本系統已內建主計總處 110-113 年所有統計數據，點擊即可獲得精準的薪資診斷與行動建議。",
+        heroStat1Label: "全國性別薪資差距 (113年)",
+        heroStat2Label: "全台薪資最高峰年齡",
         introCardLabel: "ABOUT EQUALPAY",
         introCardText1: "EqualPay 是一個以薪資透明與職場公平為核心的互動式平台。",
         introCardText2: "透過薪資診斷、匿名回報與知識小挑戰，幫助使用者了解自己的薪資是否接近市場基準，也讓更多真實職場資訊被看見。",
@@ -176,7 +177,9 @@ const I18N = {
         status: "Loaded official data from ROC Years 110-113",
         badge: "SDG 10: Reducing Workplace Inequality",
         heroTitle: `<span class="title-line">See salary</span><span class="title-line"><span class="title-accent">see fairness</span></span>`,
-        heroDesc: "No file upload required. This system includes official salary statistics from ROC Years 110-113 and provides instant salary diagnosis and action suggestions.",
+        heroStat1Label: "Gender Pay Gap (2024)",
+        heroStat2Label: "Peak Salary Age Group",
+        heroStat2Val: "Ages 40-49",
         introCardLabel: "ABOUT EQUALPAY",
         introCardText1: "EqualPay is an interactive platform centered on salary transparency and workplace fairness.",
         introCardText2: "Through salary diagnosis, anonymous reporting, and knowledge challenges, it helps users understand whether their salary is close to the market benchmark and makes more real workplace information visible.",
@@ -426,6 +429,15 @@ function setLanguage(lang) {
     const heroTitle = document.querySelector('header h1');
     if (heroTitle) heroTitle.innerHTML = t.heroTitle;
 
+    setText('#heroDesc', t.heroDesc);
+    setText('#heroStat1Label', t.heroStat1Label);
+    setText('#heroStat2Label', t.heroStat2Label);
+    if(lang === 'en') {
+        setText('#heroStat2Val', t.heroStat2Val);
+    } else {
+        setText('#heroStat2Val', '40-49歲');
+    }
+    setText('#heroDesc', t.heroDesc);
     setText('#introCardLabel', t.introCardLabel);
     setText('#introCardText1', t.introCardText1);
     setText('#introCardText2', t.introCardText2);
@@ -550,6 +562,9 @@ function setLanguage(lang) {
     // 自動帶入當前正選取的年份，動態補上該年份對應的語系 Dataset 標題
     changeAgeChartYear(currentAgeYear);
     }
+    if (typeof updateRoiLanguageTexts === 'function') {
+    updateRoiLanguageTexts();
+}
 }
 
 // 核心資料庫：已完整整合您提供的 8 個 CSV 檔案數據
@@ -1340,5 +1355,81 @@ function changeAgeChartYear(year) {
     });
 }
 
+
+function calculateEduROI() {
+    const industry = document.getElementById('roiIndustry').value;
+    const data113 = HISTORICAL_DATA["113年"].industries[industry];
+    
+    if (!data113 || !data113.edu) return;
+
+    // 1. 抓取對應學歷數據 (萬/年)
+    const univSalary = data113.edu["專科及大學"];
+    const gradSalary = data113.edu["研究所"];
+    
+    // 2. 計算核心 ROI 指標
+    const annualPremium = (gradSalary - univSalary).toFixed(1);
+    const monthlyPremium = Math.round(((gradSalary - univSalary) * 10000) / 12);
+    const roiPercentage = (((gradSalary - univSalary) / univSalary) * 100).toFixed(1);
+
+    // 3. 依據溢價幅度 (ROI %)，動態產出極具洞察力的決策指南評語
+    let commentZh = "";
+    let commentEn = "";
+
+    if (roiPercentage >= 50) {
+        commentZh = `🚀 <strong>黃金投報率！</strong> 研究所學歷在該行業具備極強的生存優勢，碩士溢價極高（每月平均多賺約 ${monthlyPremium.toLocaleString()} 元），強烈建議攻讀碩士！`;
+        commentEn = `🚀 <strong>Golden ROI!</strong> Post-grad degree holds a powerful advantage here. The premium is massive (approx. +NT$${monthlyPremium.toLocaleString()}/mo). Highly recommend graduate school!`;
+    } else if (roiPercentage >= 25) {
+        commentZh = `📈 <strong>穩定高回報！</strong> 碩士能帶來顯著的加薪效益（每月多賺約 ${monthlyPremium.toLocaleString()} 元），是一筆非常精準且值得投資的職涯資本。`;
+        commentEn = `📈 <strong>Solid Return!</strong> A master's degree brings significant leverage (+NT$${monthlyPremium.toLocaleString()}/mo). It is a well-justified career investment.`;
+    } else {
+        commentZh = `⚖️ <strong>實務經驗優先！</strong> 碩士與大學薪資落差較小（加薪幅僅 ${roiPercentage}%）。該產業可能更看重在職實務經驗、年資或核心證照，建議審慎評估兩年時間與學費成本。`;
+        commentEn = `⚖️ <strong>Experience First!</strong> Low salary premium (+${roiPercentage}%). This industry values on-the-job experience or practical licenses more than diplomas. Evaluate the cost carefully.`;
+    }
+
+    // 4. 判斷現行雙語系語境，渲染網頁文字
+    const isEn = currentLang === 'en';
+    
+    document.getElementById('roiUnivText').innerText = isEn ? `${univSalary}萬 / Yr` : `${univSalary} 萬/年`;
+    document.getElementById('roiGradText').innerText = isEn ? `${gradSalary}萬 / Yr` : `${gradSalary} 萬/年`;
+    document.getElementById('roiPremiumText').innerHTML = isEn 
+        ? `+${annualPremium}萬 <span class="text-lg font-bold text-slate-500">/ Yr</span>`
+        : `+${annualPremium} 萬 <span class="text-lg font-bold text-slate-500">/ 年</span>`;
+    document.getElementById('roiPercentText').innerText = isEn 
+        ? `Salary Premium: +${roiPercentage}%` 
+        : `學歷加薪幅度：+${roiPercentage}%`;
+    document.getElementById('roiComment').innerHTML = isEn ? commentEn : commentZh;
+
+    // 5. 動態比例條動畫優化 (以最大可能年薪 140 萬作為比例尺基準)
+    const maxScale = 140;
+    const univWidth = Math.min((univSalary / maxScale) * 100, 100);
+    const gradWidth = Math.min((gradSalary / maxScale) * 100, 100);
+    
+    document.getElementById('roiUnivBar').style.width = univWidth + '%';
+    document.getElementById('roiGradBar').style.width = gradWidth + '%';
+}
+
+// 6. 擴充原本的 setLanguage 雙語翻譯字典，維持全站高密合度語系切換
+function updateRoiLanguageTexts() {
+    const isEn = currentLang === 'en';
+    
+    document.getElementById('roiTitle').innerHTML = isEn ? "Should You Go to Grad School?<br>Education ROI Calculator" : "該不該讀研究所？<br>學歷投報率計算";
+    document.getElementById('roiDesc').innerText = isEn 
+        ? "Cross-examine official statistics to analyze the salary premium of Master's vs. Bachelor's degrees across industries. Make smart investments in your career."
+        : "交叉比對 113 年官方完整數據，深度解析不同產業中「碩士」相比於「學士」的薪資溢價，出社會前幫自己做最精準的職涯投資評估。";
+    document.getElementById('roiSelectLabel').innerText = isEn ? "Select Industry for Evaluation:" : "請選擇欲評估的行業別：";
+    document.getElementById('roiNote').innerHTML = isEn 
+        ? "💡 Methodology Notes: This calculator dynamically retrieves data from baseline tables to calculate the precise capital premium while excluding outliers."
+        : "💡 數據分析幕後：本計算器動態撈取底層核心報表，排除極端值，精算同產業內之學歷資本實質溢價率。";
+    document.getElementById('roiGuideTitle').innerText = isEn ? "Big Data Career Guide" : "大數據職涯指南";
+    
+    // 重新跑一次計算，刷新當前畫面的中英文文字
+    calculateEduROI();
+}
+
+// 綁定到全域供 HTML 調用
+window.calculateEduROI = calculateEduROI;
+
 // 如果未來將 JS 改為 type="module" 部署，這行能確保 HTML 的 onclick 依然叫得到它
 window.changeAgeChartYear = changeAgeChartYear;
+// 初始化預設執行一次計算
+setTimeout(calculateEduROI, 500);
