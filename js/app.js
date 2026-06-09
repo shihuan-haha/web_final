@@ -873,148 +873,131 @@ function getIndustryAdviceEn(industry) {
     return "Collect salary information from the same industry, education level, and similar age group, then combine it with your own work achievements for a stronger salary discussion.";
 }
 
-function generateSmartAdvice() {
+async function generateSmartAdvice() {
     const t = I18N[currentLang];
     const output = document.getElementById('smartAdviceOutput');
+    const button = document.getElementById('smartAdviceBtn');
 
     if (!lastDiagnosis) {
         alert(t.smartAdviceNeedDiagnosis);
         return;
     }
 
-    const d = lastDiagnosis;
-    const isEn = currentLang === 'en';
-    const genderLabel = d.selectedGender === 'male' ? t.male : t.female;
-    const gapText = Math.abs(d.gapAmount).toLocaleString();
-
-    let levelText, summary, strategies = [], checklist = [], script = "", actionPlan = [];
-
-    if (isEn) {
-        if (d.ratio < 75) {
-            levelText = "High gap risk";
-            summary = `Your current salary is far below the estimated fairness benchmark. The gap is about NT$${gapText} per month, so you should prepare evidence and discuss salary adjustment carefully.`;
-        } else if (d.ratio < 85) {
-            levelText = "Below benchmark";
-            summary = `Your salary is below the fairness benchmark by about NT$${gapText} per month. You should review your job scope and prepare for a salary conversation.`;
-        } else if (d.ratio < 100) {
-            levelText = "Close to benchmark";
-            summary = `Your salary is close to the benchmark but still slightly lower. Focus on documenting performance and preparing for the next review cycle.`;
-        } else {
-            levelText = "Meets benchmark";
-            summary = `Your salary meets or exceeds the current benchmark. The next step is to maintain competitiveness and plan long-term growth.`;
-        }
-
-        strategies.push("Build a salary evidence file: include job responsibilities, achievements, overtime or workload records, and comparable salary data.");
-        strategies.push(getIndustryAdviceEn(d.industry));
-
-        if (d.selectedGender === "female" && d.ratio < 100) {
-            strategies.push("Pay equity angle: document whether people with similar responsibilities receive different treatment, and focus the discussion on role value and equal pay for equal work.");
-        } else if (d.education === "高中" || d.education === "國中及以下") {
-            strategies.push("Skill upgrade angle: choose one practical certificate, course, or portfolio project that can directly increase your value in the current industry.");
-        } else {
-            strategies.push("Career mobility angle: compare internal promotion, transfer, and external job opportunities to understand your real market value.");
-        }
-
-        checklist = [
-            "List three measurable work achievements from the last 3-6 months.",
-            "Write down your current responsibilities and any tasks beyond your original role.",
-            "Collect salary references from reliable public statistics or job platforms.",
-            "Prepare a target salary range instead of only one number.",
-            "Practice a calm, evidence-based conversation with your manager."
-        ];
-
-        script = `I would like to discuss my compensation based on my current responsibilities and recent contributions. According to the benchmark used in this diagnosis, my current salary is at ${d.ratio}% of the estimated fair benchmark. I hope we can review whether my salary matches my role scope and performance, and discuss a reasonable adjustment plan.`;
-
-        actionPlan = [
-            "Week 1: Organize your responsibilities, achievements, and salary benchmark data.",
-            "Week 2: Identify skill gaps and choose one improvement action, such as a certificate, course, or portfolio project.",
-            "Week 3: Prepare your salary conversation outline and target range.",
-            "Week 4: Schedule a discussion with your manager or evaluate alternative opportunities."
-        ];
-    } else {
-        if (d.ratio < 75) {
-            levelText = "高度落差風險";
-            summary = `您的目前薪資明顯低於公平基準，月薪差距約 ${gapText} 元，建議優先整理證據並謹慎規劃談薪。`;
-        } else if (d.ratio < 85) {
-            levelText = "低於基準";
-            summary = `您的薪資低於公平基準，月薪差距約 ${gapText} 元，建議檢視職責範圍並準備薪資溝通。`;
-        } else if (d.ratio < 100) {
-            levelText = "接近基準";
-            summary = `您的薪資接近公平基準，但仍略低於估算值，建議累積績效證據，為下一次調薪或轉職做準備。`;
-        } else {
-            levelText = "符合基準";
-            summary = `您的薪資已達到或高於目前公平基準，後續重點是維持競爭力與規劃長期職涯成長。`;
-        }
-
-        strategies.push("建立薪資佐證資料夾：整理工作職責、實際貢獻、加班或工作量紀錄，以及同產業薪資資料。");
-        strategies.push(getIndustryAdviceZh(d.industry));
-
-        if (d.selectedGender === "female" && d.ratio < 100) {
-            strategies.push("性別平權角度：若同職位、同責任卻存在薪資差距，建議以職務價值與同工同酬作為溝通主軸。");
-        } else if (d.education === "高中" || d.education === "國中及以下") {
-            strategies.push("技能提升角度：選擇一項能直接增加產業競爭力的證照、課程或作品集，提升談薪籌碼。");
-        } else {
-            strategies.push("職涯流動角度：比較內部調薪、轉部門與外部職缺，確認自己的實際市場價值。");
-        }
-
-        checklist = [
-            "列出近 3 到 6 個月內最具體的三項工作成果。",
-            "整理目前職責，以及超出原本工作範圍的任務。",
-            "蒐集官方統計或求職平台上的薪資參考資料。",
-            "準備一個合理薪資區間，不要只準備單一數字。",
-            "用冷靜、以證據為主的方式練習與主管溝通。"
-        ];
-
-        script = `我想根據目前的工作職責與近期貢獻，討論薪資是否有調整空間。依照本系統的公平基準估算，我目前薪資約為基準的 ${d.ratio}%。希望能一起檢視我的職務內容、績效成果與薪資是否相符，並討論合理的調整方向。`;
-
-        actionPlan = [
-            "第 1 週：整理職職、成果與薪資基準資料。",
-            "第 2 週：確認自己的技能缺口，選擇一項證照、課程或作品集改善方向。",
-            "第 3 週：準備談薪大綱與合理薪資區間。",
-            "第 4 週：安排與主管溝通，或同步評估其他職涯機會。"
-        ];
-    }
-
     output.classList.remove('hidden');
     output.innerHTML = `
-        <div class="space-y-6">
-            <div>
-                <p class="text-xs font-black text-indigo-600 uppercase tracking-widest mb-2">${levelText}</p>
-                <h6 class="text-2xl font-black text-slate-900 mb-3">${isEn ? "Personalized Diagnosis Summary" : "個人化診斷摘要"}</h6>
-                <p>${summary}</p>
-                <p class="mt-3 text-sm text-slate-500">
-                    ${isEn ? "Diagnosis conditions" : "診斷條件"}：
-                    ${displayLabel(d.year)}｜${displayLabel(d.education)}｜${displayLabel(d.age)}｜${displayLabel(d.industry)}｜${genderLabel}
-                </p>
-            </div>
-
-            <div>
-                <h6 class="font-black text-slate-900 mb-3">${isEn ? "Improvement Strategies" : "改善策略"}</h6>
-                <ul class="list-disc pl-6 space-y-2">
-                    ${strategies.map(item => `<li>${item}</li>`).join('')}
-                </ul>
-            </div>
-
-            <div>
-                <h6 class="font-black text-slate-900 mb-3">${isEn ? "Negotiation Preparation Checklist" : "談薪準備清單"}</h6>
-                <ul class="list-disc pl-6 space-y-2">
-                    ${checklist.map(item => `<li>${item}</li>`).join('')}
-                </ul>
-            </div>
-
-            <div>
-                <h6 class="font-black text-slate-900 mb-3">${isEn ? "Suggested Conversation Script" : "談薪話術範例"}</h6>
-                <div class="bg-white border border-slate-200 rounded-2xl p-5 text-slate-600">${script}</div>
-            </div>
-
-            <div>
-                <h6 class="font-black text-slate-900 mb-3">${isEn ? "30-day Action Plan" : "30 天行動計畫"}</h6>
-                <ol class="list-decimal pl-6 space-y-2">
-                    ${actionPlan.map(item => `<li>${item}</li>`).join('')}
-                </ol>
-            </div>
+        <div class="text-slate-600 font-bold">
+            ${currentLang === 'en' ? 'AI diagnosis is generating, please wait...' : 'AI 診斷建議產生中，請稍候...'}
         </div>
     `;
+
+    if (button) {
+        button.disabled = true;
+        button.textContent = currentLang === 'en' ? "Generating..." : "產生中...";
+    }
+
+    try {
+        const { data, error } = await db.functions.invoke("generate-salary-diagnosis", {
+            body: {
+                lang: currentLang,
+                diagnosis: {
+                    year: lastDiagnosis.year,
+                    education: lastDiagnosis.education,
+                    age: lastDiagnosis.age,
+                    industry: lastDiagnosis.industry,
+                    salary: lastDiagnosis.salary,
+                    selectedGender: lastDiagnosis.selectedGender,
+                    fairBenchmark: lastDiagnosis.fairBenchmark,
+                    ratio: lastDiagnosis.ratio,
+                    score: lastDiagnosis.score,
+                    gapAmount: lastDiagnosis.gapAmount,
+                    resultStatus: lastDiagnosis.resultStatus
+                }
+            }
+        });
+
+        if (error) {
+            console.error(error);
+            throw error;
+        }
+
+        const isEn = currentLang === 'en';
+
+        output.innerHTML = `
+            <div class="space-y-6">
+                <div>
+                    <p class="text-xs font-black text-indigo-600 uppercase tracking-widest mb-2">
+                        ${escapeHTML(data.level || (isEn ? "AI Diagnosis" : "AI 診斷"))}
+                    </p>
+
+                    <h6 class="text-2xl font-black text-slate-900 mb-3">
+                        ${isEn ? "AI Salary Fairness Summary" : "AI 薪資公平性摘要"}
+                    </h6>
+
+                    <p>${escapeHTML(data.summary || "")}</p>
+
+                    <p class="mt-3 text-sm text-slate-500">
+                        ${isEn ? "Diagnosis conditions" : "診斷條件"}：
+                        ${displayLabel(lastDiagnosis.year)}｜
+                        ${displayLabel(lastDiagnosis.education)}｜
+                        ${displayLabel(lastDiagnosis.age)}｜
+                        ${displayLabel(lastDiagnosis.industry)}｜
+                        ${lastDiagnosis.selectedGender === 'male' ? t.male : t.female}
+                    </p>
+                </div>
+
+                <div>
+                    <h6 class="font-black text-slate-900 mb-3">
+                        ${isEn ? "Improvement Strategies" : "改善策略"}
+                    </h6>
+                    <ul class="list-disc pl-6 space-y-2">
+                        ${(data.strategies || []).map(item => `<li>${escapeHTML(item)}</li>`).join('')}
+                    </ul>
+                </div>
+
+                <div>
+                    <h6 class="font-black text-slate-900 mb-3">
+                        ${isEn ? "Negotiation Preparation Checklist" : "談薪準備清單"}
+                    </h6>
+                    <ul class="list-disc pl-6 space-y-2">
+                        ${(data.checklist || []).map(item => `<li>${escapeHTML(item)}</li>`).join('')}
+                    </ul>
+                </div>
+
+                <div>
+                    <h6 class="font-black text-slate-900 mb-3">
+                        ${isEn ? "Suggested Conversation Script" : "談薪話術範例"}
+                    </h6>
+                    <div class="bg-white border border-slate-200 rounded-2xl p-5 text-slate-600 leading-relaxed">
+                        ${escapeHTML(data.script || "")}
+                    </div>
+                </div>
+
+                <div>
+                    <h6 class="font-black text-slate-900 mb-3">
+                        ${isEn ? "Action Plan" : "行動計畫"}
+                    </h6>
+                    <ol class="list-decimal pl-6 space-y-2">
+                        ${(data.actionPlan || []).map(item => `<li>${escapeHTML(item)}</li>`).join('')}
+                    </ol>
+                </div>
+            </div>
+        `;
+    } catch (error) {
+        console.error(error);
+
+        output.innerHTML = `
+            <div class="bg-red-50 border border-red-100 text-red-700 rounded-2xl p-5">
+                ${currentLang === 'en'
+                    ? 'AI diagnosis failed. Please check Supabase Function, GEMINI_API_KEY, or network settings.'
+                    : 'AI 診斷建議產生失敗，請確認 Supabase Function、GEMINI_API_KEY 或網路設定。'}
+            </div>
+        `;
+    } finally {
+        if (button) {
+            button.disabled = false;
+            button.textContent = t.smartAdviceButton;
+        }
+    }
 }
 
 function generateSolutions(gender, edu) {
