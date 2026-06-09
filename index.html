@@ -109,13 +109,22 @@
                 </div>
 
                 <div class="case-block rounded-[2.5rem] p-8">
-                    <h3 class="text-2xl font-black text-black mb-6 flex items-center gap-3">
-                        <span class="w-3 h-3 rounded-full bg-lime-400"></span>
-                        113年全產業年齡別薪資中位數
-                    </h3>
-                    <div class="h-[320px]"><canvas id="ageChart"></canvas></div>
-                    <p class="text-sm text-slate-500 mt-5">※ 發現：薪資隨年齡顯著增長，並在 40-49 歲達到高峰。</p>
-                </div>
+    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6">
+        <h3 class="text-2xl font-black text-black flex items-center gap-3" id="ageChartTitle">
+            <span class="w-3 h-3 rounded-full bg-lime-400"></span>
+            113年全產業年齡別薪資中位數
+        </h3>
+        
+        <div class="bg-slate-100 p-1 rounded-full flex gap-1 text-xs font-black shrink-0" id="ageYearTabs">
+            <button onclick="changeAgeChartYear('113年')" id="btn-age-113" class="px-4 py-1.5 rounded-full bg-indigo-600 text-white transition duration-200">113年</button>
+            <button onclick="changeAgeChartYear('112年')" id="btn-age-112" class="px-4 py-1.5 rounded-full text-slate-600 hover:text-black transition duration-200">112年</button>
+            <button onclick="changeAgeChartYear('111年')" id="btn-age-111" class="px-4 py-1.5 rounded-full text-slate-600 hover:text-black transition duration-200">111年</button>
+        </div>
+    </div>
+    
+    <div class="h-[320px]"><canvas id="ageChart"></canvas></div>
+    <p class="text-sm text-slate-500 mt-5" id="ageChartNote">※ 發現：薪資隨年齡顯著增長，並在 40-49 歲達到高峰。</p>
+</div>
             </div>
         </section>
 
